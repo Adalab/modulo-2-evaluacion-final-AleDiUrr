@@ -337,10 +337,24 @@ button {
   box-shadow: none; }
 
 .main {
-  display: flex; }
+  display: flex;
+  flex-direction: row; }
 
-.drink_list {
+.right_list {
+  display: flex;
+  flex-direction: row;
+  margin-top: 40px;
+  color: darkgoldenrod; }
+  .right_list .right_img {
+    border-style: dashed;
+    width: 100px; }
+
+.favs_list {
+  display: flex;
   flex-direction: column;
-  margin-top: 40px; }
+  color: black; }
+  .favs_list .fav_img {
+    border-style: dotted;
+    width: 100px; }
 
 /*# sourceMappingURL=main.css.map */
