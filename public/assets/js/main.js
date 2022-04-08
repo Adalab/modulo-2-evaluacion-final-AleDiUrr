@@ -1,24 +1,32 @@
 'use strict';
 const buttonSearch = document.querySelector('.js-search-btn');
 const cocktailInput = document.querySelector('.js-cocktail-input');
-
 let drinks = [];
-function handleClicKSearch() {
+
+function dataFromApi() {
   const cocktail = cocktailInput.value;
-  fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${cocktail}`)
+  const url_server = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${cocktail}`;
+
+  fetch(url_server)
     .then((resp) => resp.json())
     .then((data) => {
-      console.log(data);
       drinks = data.drinks.map((coctel) => {
         const newCoctel = {
-          strDrink: coctel.strDrink,
-          strDrinkThumb: coctel.strDrinkThumb,
+          id: coctel.idDrink,
+          name: coctel.strDrink,
+          img: coctel.strDrinkThumb,
         };
         return newCoctel;
       });
       console.log(drinks);
     });
 }
-buttonSearch.addEventListener('click', handleClicKSearch);
+
+function handleClicKSearchDrink(event) {
+  event.preventDefault();
+  dataFromApi();
+}
+
+buttonSearch.addEventListener('click', handleClicKSearchDrink);
 
 //# sourceMappingURL=main.js.map
