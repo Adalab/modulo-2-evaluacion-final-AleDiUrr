@@ -339,10 +339,6 @@ button {
 .main {
   display: flex; }
 
-.nofavs_title {
-  margin-top: 25px;
-  flex-direction: row; }
-
 .drink_list {
   flex-direction: column;
   margin-top: 40px; }

@@ -1,7 +1,20 @@
 'use strict';
 const buttonSearch = document.querySelector('.js-search-btn');
 const cocktailInput = document.querySelector('.js-cocktail-input');
+const list = document.querySelector('.js-favs-list');
 let drinks = [];
+
+function renderDrinkList(dataFromApi) {
+  let html = '';
+  for (let i = 0; i < drinks.length; i++) {
+    const drink = drinks[i];
+    html += `<li id=${drink.id}>`;
+    html += `<img src=${drink.img} alt="" width= "100px">`;
+    html += `<h2>${drink.name} </h2>`;
+    html += `</li>`;
+    list.innerHTML = html;
+  }
+}
 
 function dataFromApi() {
   const cocktail = cocktailInput.value;
@@ -18,7 +31,7 @@ function dataFromApi() {
         };
         return newCoctel;
       });
-      console.log(drinks);
+      renderDrinkList();
     });
 }
 
