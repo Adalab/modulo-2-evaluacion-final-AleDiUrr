@@ -2,67 +2,56 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Adalab Web Starter Kit</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:wght@900&family=Montserrat:wght@400;600&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/016f8587a2.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="icon" href="./assets/images/drink.png" />
     <link rel="stylesheet" href="./assets/css/main.css" />
-    <link rel="icon" href="./assets/images/favicon.png" />
+    <title>Your favorite cocktail-</title>
   </head>
-
   <body>
-    <div class="page">
-      <header class="page__header">
-        <img src="./assets/images/logo-adalab.png" alt="Adalab">
-        <h1>Bienvenidos a Adalab</h1>
-      </header>
+    <h1>World cocktails and drinks</h1>
 
-      <main class="page__main">
-        <h2>Este es el starter kit de Adalab</h2>
-        <p>Lo usamos para aprender:</p>
-        <ul class="main__list">
-          <li>Sass</li>
-          <li>HTML partials</li>
-          <li>Gulp</li>
-          <li>y muchas cosas más</li>
+    <main class="main">
+      <section class="left_section">
+        <form class="form_section" action="">
+          <input class="input js-cocktail-input" type="text" name="find" />
+          <input class="search_button js-search-btn" type="button" value="Search" />
+          <input class="reset_button js-reset-btn" type="reset" value="Reset" />
+        </form>
+        <h2 class="favs_title js-favs-title">Your favs</h2>
+        <ul class="favs_list js-favs-list">
+          <!--<li>
+        <img class="img" src="" alt="" />
+        <h2></h2>
+        </li>-->
         </ul>
-        <p>Si quieres saber cúales son las rutas correctas para:</p>
-        <ul class="main__list">
-          <li>
-            una <code class="code">&lt;img /&gt;</code> mira el fichero
-            <code class="code">./src/html/partials/header.html</code>.
-          </li>
-          <li>
-            y para un <code class="code">background-image</code> mira el fichero
-            <code class="code">./src/html/scss/layout/_page.scss</code>.
-          </li>
-        </ul>
-        <p>
-          Si quieres saber cómo usar un partial HTML dentro de otro partial, busca en la carperta
-          <code class="code">./src/html/index.html</code> y
-          <code class="code">./src/html/partials/main.html</code>, y verás cómo estamos creando estos
-          enlaces:
-        </p>
-        <ul class="main__list">
-          <li>
-            <a class="link__adalab" href="https://adalab.es">Adalab</a>
+      </section>
+      <section class="right_section"></section>
+      <!--<h2 class="nofavs_title js-nofavs-list">Results</h2>-->
+      <ul class="drink_list js-drink-list">
+        <!-- <li>
+          <img
+            class="img"
+            src="./assets/images/strawberry-cocktail-m.jpg"
+            alt=""
+            width="100px"
+          />
+          <h2>Margarita</h2> -->
+        </li>
+      </ul>
+    </main>
 
-          </li>
-          <li>
-            <a class="" href="./more-info.html">Más info del starter kit</a>
-
-          </li>
-        </ul>
-      </main>
-
-      <footer class="page__footer">
-        <small>
-          &copy; Todos los derechos reservados
-          <a class="link__adalab" href="https://adalab.es">Adalab</a>
-
-        </small>
-      </footer>
-
-    </div>
-    <script src="./assets/js/main.js"></script>
+    
+    <script type="text/javascript" src="./assets/js/main.js"></script>
   </body>
 </html>
