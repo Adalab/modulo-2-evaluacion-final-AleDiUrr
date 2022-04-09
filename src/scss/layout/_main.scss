@@ -1,31 +1,30 @@
 .main {
-    display: flex;
-    flex-direction: row;
+    display: flex; 
+}
+
+
    
-}
 
-
-
-.right_list {
+    .fav_item_list{
     display: flex;
-    flex-direction: row;
-    margin-top: 40px;
-    color: darkgoldenrod;
+    justify-content: space-around;
+    align-items: center;
+    color: aliceblue;
+    background-color: black;
+    }
 
-.right_img {
- border-style: dashed;
- width: 100px;
-}
-}
-
-.favs_list {
+    
+    .result_item_list {
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: center;
     color: black;
+    background-color:azure;
+    margin-top: 40px;
+    margin-left: 100px;
+    }
+    
 
-.fav_img {
- border-style: dotted;
- width: 100px;
-}
 
-}
+

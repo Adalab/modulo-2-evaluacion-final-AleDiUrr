@@ -337,24 +337,23 @@ button {
   box-shadow: none; }
 
 .main {
-  display: flex;
-  flex-direction: row; }
+  display: flex; }
 
-.right_list {
+.fav_item_list {
   display: flex;
-  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  color: aliceblue;
+  background-color: black; }
+
+.result_item_list {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  align-items: center;
+  color: black;
+  background-color: azure;
   margin-top: 40px;
-  color: darkgoldenrod; }
-  .right_list .right_img {
-    border-style: dashed;
-    width: 100px; }
-
-.favs_list {
-  display: flex;
-  flex-direction: column;
-  color: black; }
-  .favs_list .fav_img {
-    border-style: dotted;
-    width: 100px; }
+  margin-left: 100px; }
 
 /*# sourceMappingURL=main.css.map */
