@@ -1,33 +1,26 @@
 .main {
     display: flex; 
 }
+.fav_item_list{
+display: flex;
+justify-content: space-around;
+align-items: center;
+color: black;
+background-color: darkviolet;
+border-style: dashed;
+}
 
 
-   
-
-    .fav_item_list{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    color: aliceblue;
-    background-color: black;
-    border-style: dashed;
-    }
-
-    .result_list{
-        display: flex;
-        flex-direction: row;
-    } 
-
-    .result_item_list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: black;
-    background-color: goldenrod;
-    margin-top: 40px;
-    border-style: double;
-    }
+.result_item_list {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+color: darkviolet;
+background-color: black;
+margin-top: 40px;
+border-style: dotted;
+}
     
 
 
