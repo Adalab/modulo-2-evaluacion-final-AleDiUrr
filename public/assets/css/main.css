@@ -347,10 +347,6 @@ button {
   background-color: darkviolet;
   border-style: dashed; }
 
-.result_list {
-  display: flex;
-  flex-direction: row; }
-
 .result_item_list {
   display: flex;
   flex-direction: column;
