@@ -5,6 +5,18 @@ const list = document.querySelector('.js-favs-list');
 let html = '';
 let drinks = [];
 let favs = [];
+let favStyle = '';
+
+function itIsFavorite(drink) {
+  const favoriteDrink = favs.find((fav) => {
+    return favs.id === drink.id;
+  });
+  if (favoriteDrink === undefined) {
+    return false;
+  } else {
+    return true;
+  }
+}
 
 function handleClickResults(event) {
   const clickedFavid = event.currentTarget.id;
@@ -30,9 +42,14 @@ function listenerliResults() {
 }
 
 function renderDrinkList(dataFromApi) {
-  for (let i = 0; i < drinks.length; i++) {
-    const drink = drinks[i];
-    html += `<li class="result_item_list js-result" id=${drink.id}>`;
+  for (const drink of drinks) {
+    const isFave = itIsFavorite(drink);
+    if (isFave) {
+      favStyle = 'fav_item_list';
+    } else {
+      favStyle = '';
+    }
+    html += `<li class="result_item_list js-result ${isFave}" id=${drink.id}>`;
     if (drink.img === null) {
       html += `<img
           class="fav_img"
