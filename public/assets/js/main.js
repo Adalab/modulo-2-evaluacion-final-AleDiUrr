@@ -2,19 +2,30 @@
 const buttonSearch = document.querySelector('.js-search-btn');
 const cocktailInput = document.querySelector('.js-cocktail-input');
 const list = document.querySelector('.js-favs-list');
-const itemResults = document.querySelectorAll('.js-result-item');
 let drinks = [];
+
+function handleClickResults(event) {
+  console.log(event.currentTarget.id);
+}
+
+function listenerliResults() {
+  const liResults = document.querySelectorAll('.js-result');
+  for (const itemResult of liResults) {
+    itemResult.addEventListener('click', handleClickResults);
+  }
+}
 
 function renderDrinkList(dataFromApi) {
   let html = '';
   for (let i = 0; i < drinks.length; i++) {
     const drink = drinks[i];
-    html += `<li class="result_list js-result-item" id=${drink.id}>`;
-    html += `<img src=${drink.img} alt="" width= "100px">`;
+    html += `<li class="result_item_list js-result" id=${drink.id}>`;
+    html += `<img src=${drink.img} width=200px >`;
     html += `<h2>${drink.name} </h2>`;
     html += `</li>`;
-    list.innerHTML = html;
   }
+  list.innerHTML = html;
+  listenerliResults();
 }
 
 function dataFromApi() {
