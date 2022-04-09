@@ -5,8 +5,8 @@
 display: flex;
 justify-content: space-around;
 align-items: center;
-color: aliceblue;
-background-color: black;
+color: black;
+background-color: darkviolet;
 border-style: dashed;
 }
 
@@ -18,11 +18,12 @@ flex-direction: row;
 .result_item_list {
 display: flex;
 flex-direction: column;
+justify-content: center;
 align-items: center;
-color: black;
-background-color: goldenrod;
+color: darkviolet;
+background-color: black;
 margin-top: 40px;
-border-style: double;
+border-style: dotted;
 }
     
 

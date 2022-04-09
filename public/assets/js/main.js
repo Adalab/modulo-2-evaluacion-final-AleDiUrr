@@ -2,10 +2,24 @@
 const buttonSearch = document.querySelector('.js-search-btn');
 const cocktailInput = document.querySelector('.js-cocktail-input');
 const list = document.querySelector('.js-favs-list');
+let html = '';
 let drinks = [];
+let favs = [];
 
 function handleClickResults(event) {
-  console.log(event.currentTarget.id);
+  const clickedFavid = event.currentTarget.id;
+
+  const clickResult = drinks.find((itemClickedDrink) => {
+    return itemClickedDrink.id === clickedFavid;
+  });
+  const favDrinkFound = favs.findIndex((fav) => {
+    return fav.id === clickedFavid;
+  });
+  if (favDrinkFound === -1) {
+    favs.push(clickResult);
+  } else {
+    favs.splice(favDrinkFound, 1);
+  }
 }
 
 function listenerliResults() {
@@ -16,11 +30,18 @@ function listenerliResults() {
 }
 
 function renderDrinkList(dataFromApi) {
-  let html = '';
   for (let i = 0; i < drinks.length; i++) {
     const drink = drinks[i];
     html += `<li class="result_item_list js-result" id=${drink.id}>`;
-    html += `<img src=${drink.img} width=200px >`;
+    if (drink.img === null) {
+      html += `<img
+          class="fav_img"
+          src="./assets/images/strawberry-cocktail-m.jpg"
+          width="100px"
+        />`;
+    } else {
+      html += `<img src=${drink.img} width=200px >`;
+    }
     html += `<h2>${drink.name} </h2>`;
     html += `</li>`;
   }
