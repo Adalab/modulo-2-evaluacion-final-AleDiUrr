@@ -2,9 +2,31 @@
 
 const buttonSearch = document.querySelector('.js-search-btn');
 const cocktailInput = document.querySelector('.js-cocktail-input');
-const list = document.querySelector('.js-favs-list');
+const list = document.querySelector('.js-result-list');
+const listFavs = document.querySelector('.js-favs-list');
 let drinks = [];
 let favorites = [];
+let liResult;
+
+function renderFavsDrinks() {
+  let html = '';
+  if (favorites.length === 0 || favorites === null) {
+    html += `Any fav?'`;
+  } else {
+    for (const favorite of favorites) {
+      html += `<li class="fav_item_list js_fav_item" id="${favorite.id}">`;
+      html += `<h2">${favorite.name}</h2>`;
+      if (favorite.img === null) {
+        html += `<img class="drink_img" src="./assets/images/strawberry-cocktail-m.jpg" alt="cocktail-photo">`;
+      } else {
+        html += `<img class="drink_img" src="${favorite.img}" alt="cocktail-photo">`;
+      }
+
+      html += `</li>`;
+    }
+  }
+  listFavs.innerHTML = html;
+}
 
 function handleClickResults(event) {
   const drinkIdClickled = event.currentTarget.id;
@@ -19,7 +41,7 @@ function handleClickResults(event) {
     favorites.splice(foundFavoriteDrinkIndex, 1);
   }
   renderDrinkList(drinks);
-  console.log(foundDrink);
+  renderFavsDrinks();
 }
 
 function listenerliResults() {

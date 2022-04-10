@@ -343,6 +343,10 @@ button {
   display: flex;
   flex-direction: row; }
 
+.favs_list {
+  display: flex;
+  flex-direction: column; }
+
 .result_item_list {
   display: flex;
   flex-direction: column;
@@ -362,12 +366,14 @@ button {
   border-style: dashed; }
 
 .drink_img {
-  width: 400px;
-  height: 400px; }
+  width: 100px;
+  height: 100px; }
 
 .is_fav {
   border-style: double;
   background-color: white;
-  color: black; }
+  color: black;
+  display: flex;
+  flex-direction: row; }
 
 /*# sourceMappingURL=main.css.map */
