@@ -1,27 +1,43 @@
 .main {
-    display: flex; 
-}
-.fav_item_list{
-display: flex;
-justify-content: space-around;
-align-items: center;
-color: black;
-background-color: darkviolet;
-border-style: dashed;
+    display: flex;
 }
 
+
+.result_list {
+    display: flex;
+    flex-direction: row;
+}
 
 .result_item_list {
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-color: darkviolet;
-background-color: black;
-margin-top: 40px;
-border-style: dotted;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: black;
+    margin-top: 40px;
+    border-style: dotted;
+
+
 }
-    
 
+.fav_item_list {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: black;
+    background-color: pink;
+    border-style: dashed;
 
+}
 
+.drink_img {
+    width: 400px;
+    height: 400px;
+}
+
+.is_fav {
+    border-style: double;
+    background-color: white;
+    color: black;
+}
