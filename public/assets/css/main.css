@@ -339,14 +339,6 @@ button {
 .main {
   display: flex; }
 
-.fav_item_list {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  color: black;
-  background-color: darkviolet;
-  border-style: dashed; }
-
 .result_list {
   display: flex;
   flex-direction: row; }
@@ -356,9 +348,26 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: darkviolet;
+  color: white;
   background-color: black;
   margin-top: 40px;
   border-style: dotted; }
+
+.fav_item_list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: black;
+  background-color: pink;
+  border-style: dashed; }
+
+.drink_img {
+  width: 400px;
+  height: 400px; }
+
+.is_fav {
+  border-style: double;
+  background-color: white;
+  color: black; }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,37 +1,25 @@
 'use strict';
+
 const buttonSearch = document.querySelector('.js-search-btn');
 const cocktailInput = document.querySelector('.js-cocktail-input');
 const list = document.querySelector('.js-favs-list');
-let html = '';
 let drinks = [];
-let favs = [];
-let favStyle = '';
-
-function itIsFavorite(drink) {
-  const favoriteDrink = favs.find((fav) => {
-    return favs.id === drink.id;
-  });
-  if (favoriteDrink === undefined) {
-    return false;
-  } else {
-    return true;
-  }
-}
+let favorites = [];
 
 function handleClickResults(event) {
-  const clickedFavid = event.currentTarget.id;
+  const drinkIdClickled = event.currentTarget.id;
+  const foundDrink = drinks.find((fav) => fav.id === drinkIdClickled);
 
-  const clickResult = drinks.find((itemClickedDrink) => {
-    return itemClickedDrink.id === clickedFavid;
+  const foundFavoriteDrinkIndex = favorites.findIndex((fav) => {
+    return fav.id === drinkIdClickled;
   });
-  const favDrinkFound = favs.findIndex((fav) => {
-    return fav.id === clickedFavid;
-  });
-  if (favDrinkFound === -1) {
-    favs.push(clickResult);
+  if (foundFavoriteDrinkIndex === -1) {
+    favorites.push(foundDrink);
   } else {
-    favs.splice(favDrinkFound, 1);
+    favorites.splice(foundFavoriteDrinkIndex, 1);
   }
+  renderDrinkList(drinks);
+  console.log(foundDrink);
 }
 
 function listenerliResults() {
@@ -41,25 +29,29 @@ function listenerliResults() {
   }
 }
 
-function renderDrinkList(dataFromApi) {
+function renderDrinkList(drinks) {
+  let html = '';
+  let favStyle = '';
+
   for (const drink of drinks) {
-    const isFave = itIsFavorite(drink);
-    if (isFave) {
-      favStyle = 'fav_item_list';
+    const foundFavoriteDrinkIndex = favorites.findIndex((fav) => {
+      return fav.id === drink.id;
+    });
+
+    console.log(foundFavoriteDrinkIndex);
+    if (foundFavoriteDrinkIndex !== -1) {
+      favStyle = 'is_fav';
     } else {
       favStyle = '';
     }
-    html += `<li class="result_item_list js-result ${isFave}" id=${drink.id}>`;
-    if (drink.img === null) {
-      html += `<img
-          class="fav_img"
-          src="./assets/images/strawberry-cocktail-m.jpg"
-          width="100px"
-        />`;
+    html += `<li class="result_item_list js-result ${favStyle}" id="${drink.id}">`;
+
+    if (drink.img === null || drink.img === undefined) {
+      html += `<img class="drink_img" src="./assets/images/strawberry-cocktail-m.jpg" alt="cocktail-photo"/>`;
     } else {
-      html += `<img src=${drink.img} width=200px >`;
+      html += `<img class="drink_img" src="${drink.img}" alt= cocktail-photo/>`;
     }
-    html += `<h2>${drink.name} </h2>`;
+    html += `<h2>${drink.name}</h2>`;
     html += `</li>`;
   }
   list.innerHTML = html;
@@ -81,7 +73,7 @@ function dataFromApi() {
         };
         return newCoctel;
       });
-      renderDrinkList();
+      renderDrinkList(drinks);
     });
 }
 
