@@ -7,7 +7,16 @@ const listFavs = document.querySelector('.js-favs-list');
 let drinks = [];
 let favorites = [];
 
-//function getFavoritesfromLocalStorage() {}
+function getFavoritesfromLocalStorage() {
+  const favsListStored = JSON.parse(localStorage.getItem('favorites'));
+
+  if (favsListStored) {
+    favorites = favsListStored;
+    renderFavsDrinks();
+  } else {
+    dataFromApi();
+  }
+}
 
 function setFavoritestoLocalStorage() {
   localStorage.setItem('favorites', JSON.stringify(favorites));
@@ -110,5 +119,7 @@ function handleClicKSearchDrink(event) {
   event.preventDefault();
   dataFromApi();
 }
+
+getFavoritesfromLocalStorage();
 
 buttonSearch.addEventListener('click', handleClicKSearchDrink);
