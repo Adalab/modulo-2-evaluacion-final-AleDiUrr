@@ -28,8 +28,6 @@ function getFavoritesfromLocalStorage() {
   if (favsListStored) {
     favorites = favsListStored;
     renderFavsDrinks();
-  } else {
-    dataFromApi();
   }
 }
 
