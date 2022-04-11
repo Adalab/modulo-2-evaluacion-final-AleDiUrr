@@ -4,8 +4,23 @@ const buttonSearch = document.querySelector('.js-search-btn');
 const cocktailInput = document.querySelector('.js-cocktail-input');
 const list = document.querySelector('.js-result-list');
 const listFavs = document.querySelector('.js-favs-list');
+const deleteBtn = document.querySelector('.js-reset-btn');
 let drinks = [];
 let favorites = [];
+
+function deleteFavs() {
+  localStorage.removeItem('favorites');
+}
+
+function handleListenReset(event) {
+  event.preventDefault();
+  deleteFavs();
+}
+
+function listenClickReset(event) {
+  event.preventDefault;
+  deleteBtn.addEventListener('click', handleListenReset);
+}
 
 function getFavoritesfromLocalStorage() {
   const favsListStored = JSON.parse(localStorage.getItem('favorites'));
@@ -39,6 +54,7 @@ function renderFavsDrinks() {
     }
   }
   listFavs.innerHTML = html;
+  deleteFavs();
 }
 
 function handleClickResults(event) {
