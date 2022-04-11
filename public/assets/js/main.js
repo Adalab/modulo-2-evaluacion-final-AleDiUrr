@@ -6,7 +6,11 @@ const list = document.querySelector('.js-result-list');
 const listFavs = document.querySelector('.js-favs-list');
 let drinks = [];
 let favorites = [];
-let liResult;
+
+function getFavsFromLocalStorage() {
+  const stringifyFavorites = JSON.stringify(favorites);
+  localStorage.setItem('favorites', stringifyFavorites);
+}
 
 function renderFavsDrinks() {
   let html = '';
