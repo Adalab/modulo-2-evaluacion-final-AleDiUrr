@@ -9,10 +9,11 @@ let drinks = [];
 let favorites = [];
 
 function resetFav() {
-  console.log('holis');
   localStorage.removeItem('favorites');
+  cocktailInput.value = '';
   listFavs.innerHTML = '';
   list.innerHTML = '';
+  favorites = [];
 }
 
 function handleClickReset(event) {
