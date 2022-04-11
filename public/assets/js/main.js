@@ -7,9 +7,10 @@ const listFavs = document.querySelector('.js-favs-list');
 let drinks = [];
 let favorites = [];
 
-function getFavsFromLocalStorage() {
-  const stringifyFavorites = JSON.stringify(favorites);
-  localStorage.setItem('favorites', stringifyFavorites);
+//function getFavoritesfromLocalStorage() {}
+
+function setFavoritestoLocalStorage() {
+  localStorage.setItem('favorites', JSON.stringify(favorites));
 }
 
 function renderFavsDrinks() {
@@ -46,6 +47,7 @@ function handleClickResults(event) {
   }
   renderDrinkList(drinks);
   renderFavsDrinks();
+  setFavoritestoLocalStorage();
 }
 
 function listenerliResults() {
@@ -100,6 +102,7 @@ function dataFromApi() {
         return newCoctel;
       });
       renderDrinkList(drinks);
+      setFavoritestoLocalStorage();
     });
 }
 
