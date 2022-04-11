@@ -8,6 +8,19 @@ const deleteBtn = document.querySelector('.js-reset-btn');
 let drinks = [];
 let favorites = [];
 
+function resetFav() {
+  console.log('holis');
+  localStorage.removeItem('favorites');
+  listFavs.innerHTML = '';
+  list.innerHTML = '';
+}
+
+function handleClickReset(event) {
+  event.preventDefault();
+  resetFav();
+  //borra favs localStorage
+}
+
 function getFavoritesfromLocalStorage() {
   const favsListStored = JSON.parse(localStorage.getItem('favorites'));
 
@@ -120,4 +133,5 @@ function handleClicKSearchDrink(event) {
 
 getFavoritesfromLocalStorage();
 
+deleteBtn.addEventListener('click', handleClickReset);
 buttonSearch.addEventListener('click', handleClicKSearchDrink);
