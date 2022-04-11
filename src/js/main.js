@@ -4,7 +4,6 @@ const buttonSearch = document.querySelector('.js-search-btn');
 const cocktailInput = document.querySelector('.js-cocktail-input');
 const list = document.querySelector('.js-result-list');
 const listFavs = document.querySelector('.js-favs-list');
-const noFavButton = document.querySelectorAll('.js-no-fav-button');
 let drinks = [];
 let favorites = [];
 
@@ -31,7 +30,6 @@ function renderFavsDrinks() {
     for (const favorite of favorites) {
       html += `<li class="fav_item_list js_fav_item" id="${favorite.id}">`;
       html += `<h2">${favorite.name}</h2>`;
-      html += `<button class= "no_fav_button js-no-fav-button" id = "${favorite.id}">x</button>`;
       if (favorite.img === null) {
         html += `<img class="drink_img" src="./assets/images/strawberry-cocktail-m.jpg" alt="cocktail-photo">`;
       } else {
