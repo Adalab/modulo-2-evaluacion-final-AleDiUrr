@@ -8,10 +8,6 @@ const resetBtn = document.querySelector('.js-reset-btn');
 let drinks = [];
 let favorites = [];
 
-// const btnsDelete = document.querySelectorAll('.js-delete-btn');
-// for (const btnDelete of btnsDelete)
-//   btnDelete.addEventListener('click', handleDeleteBtn);
-
 function resetFav() {
   localStorage.removeItem('favorites');
   cocktailInput.value = '';
