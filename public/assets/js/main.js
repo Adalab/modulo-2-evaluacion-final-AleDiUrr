@@ -4,9 +4,13 @@ const buttonSearch = document.querySelector('.js-search-btn');
 const cocktailInput = document.querySelector('.js-cocktail-input');
 const list = document.querySelector('.js-result-list');
 const listFavs = document.querySelector('.js-favs-list');
-const deleteBtn = document.querySelector('.js-reset-btn');
+const resetBtn = document.querySelector('.js-reset-btn');
 let drinks = [];
 let favorites = [];
+
+// const btnsDelete = document.querySelectorAll('.js-delete-btn');
+// for (const btnDelete of btnsDelete)
+//   btnDelete.addEventListener('click', handleDeleteBtn);
 
 function resetFav() {
   localStorage.removeItem('favorites');
@@ -19,7 +23,6 @@ function resetFav() {
 function handleClickReset(event) {
   event.preventDefault();
   resetFav();
-  //borra favs localStorage
 }
 
 function getFavoritesfromLocalStorage() {
@@ -42,7 +45,7 @@ function renderFavsDrinks() {
   } else {
     for (const favorite of favorites) {
       html += `<li class="fav_item_list js_fav_item" id="${favorite.id}">`;
-      html += `<h2">${favorite.name}</h2>`;
+      html += `<h2">${favorite.name}</h2> <button class="js-delete-btn" id=${favorite.id}>x</button>`;
       if (favorite.img === null) {
         html += `<img class="drink_img" src="./assets/images/strawberry-cocktail-m.jpg" alt="cocktail-photo">`;
       } else {
@@ -86,8 +89,6 @@ function renderDrinkList(drinks) {
     const foundFavoriteDrinkIndex = favorites.findIndex((fav) => {
       return fav.id === drink.id;
     });
-
-    console.log(foundFavoriteDrinkIndex);
     if (foundFavoriteDrinkIndex !== -1) {
       favStyle = 'is_fav';
     } else {
@@ -132,9 +133,9 @@ function handleClicKSearchDrink(event) {
   dataFromApi();
 }
 
-getFavoritesfromLocalStorage();
-
-deleteBtn.addEventListener('click', handleClickReset);
+resetBtn.addEventListener('click', handleClickReset);
 buttonSearch.addEventListener('click', handleClicKSearchDrink);
+
+getFavoritesfromLocalStorage();
 
 //# sourceMappingURL=main.js.map
