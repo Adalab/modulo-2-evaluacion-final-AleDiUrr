@@ -355,15 +355,15 @@ button {
   color: white;
   background-color: black;
   margin-top: 40px;
-  border-style: dotted; }
+  border-style: double; }
 
 .fav_item_list {
   display: flex;
   justify-content: space-around;
   align-items: center;
   color: black;
-  background-color: pink;
-  border-style: dashed; }
+  background-color: white;
+  border-style: double; }
 
 .drink_img {
   width: 100px;
@@ -371,7 +371,7 @@ button {
 
 .is_fav {
   border-style: double;
-  background-color: white;
+  background-color: plum;
   color: black;
   display: flex;
   flex-direction: row; }

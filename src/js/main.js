@@ -4,22 +4,21 @@ const buttonSearch = document.querySelector('.js-search-btn');
 const cocktailInput = document.querySelector('.js-cocktail-input');
 const list = document.querySelector('.js-result-list');
 const listFavs = document.querySelector('.js-favs-list');
-const deleteBtn = document.querySelector('.js-reset-btn');
+const resetBtn = document.querySelector('.js-reset-btn');
 let drinks = [];
 let favorites = [];
 
-function deleteFavs() {
+function resetFav() {
   localStorage.removeItem('favorites');
+  cocktailInput.value = '';
+  listFavs.innerHTML = '';
+  list.innerHTML = '';
+  favorites = [];
 }
 
-function handleListenReset(event) {
+function handleClickReset(event) {
   event.preventDefault();
-  deleteFavs();
-}
-
-function listenClickReset(event) {
-  event.preventDefault;
-  deleteBtn.addEventListener('click', handleListenReset);
+  resetFav();
 }
 
 function getFavoritesfromLocalStorage() {
@@ -28,8 +27,6 @@ function getFavoritesfromLocalStorage() {
   if (favsListStored) {
     favorites = favsListStored;
     renderFavsDrinks();
-  } else {
-    dataFromApi();
   }
 }
 
@@ -44,7 +41,7 @@ function renderFavsDrinks() {
   } else {
     for (const favorite of favorites) {
       html += `<li class="fav_item_list js_fav_item" id="${favorite.id}">`;
-      html += `<h2">${favorite.name}</h2>`;
+      html += `<h2">${favorite.name}</h2> <button class="js-delete-btn" id=${favorite.id}>x</button>`;
       if (favorite.img === null) {
         html += `<img class="drink_img" src="./assets/images/strawberry-cocktail-m.jpg" alt="cocktail-photo">`;
       } else {
@@ -54,7 +51,6 @@ function renderFavsDrinks() {
     }
   }
   listFavs.innerHTML = html;
-  deleteFavs();
 }
 
 function handleClickResults(event) {
@@ -89,8 +85,6 @@ function renderDrinkList(drinks) {
     const foundFavoriteDrinkIndex = favorites.findIndex((fav) => {
       return fav.id === drink.id;
     });
-
-    console.log(foundFavoriteDrinkIndex);
     if (foundFavoriteDrinkIndex !== -1) {
       favStyle = 'is_fav';
     } else {
@@ -135,6 +129,7 @@ function handleClicKSearchDrink(event) {
   dataFromApi();
 }
 
-getFavoritesfromLocalStorage();
-
+resetBtn.addEventListener('click', handleClickReset);
 buttonSearch.addEventListener('click', handleClicKSearchDrink);
+
+getFavoritesfromLocalStorage();
