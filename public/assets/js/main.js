@@ -5,8 +5,27 @@ const cocktailInput = document.querySelector('.js-cocktail-input');
 const list = document.querySelector('.js-result-list');
 const listFavs = document.querySelector('.js-favs-list');
 const deleteBtn = document.querySelector('.js-reset-btn');
+const longDrinks = document.querySelector('.js-long');
+const logBtn = document.querySelector('.js-log');
+
 let drinks = [];
 let favorites = [];
+
+function handleLogBtn(event) {
+  for (const log of favorites) {
+    log.name;
+    console.log(log.name);
+  }
+}
+
+logBtn.addEventListener('click', handleLogBtn);
+
+function renderP() {
+  const favs = favorites.length;
+  longDrinks.innerHTML = favs;
+}
+
+renderP();
 
 function deleteFavs() {
   localStorage.removeItem('favorites');
@@ -72,6 +91,7 @@ function handleClickResults(event) {
   renderDrinkList(drinks);
   renderFavsDrinks();
   setFavoritestoLocalStorage();
+  renderP();
 }
 
 function listenerliResults() {
@@ -104,6 +124,12 @@ function renderDrinkList(drinks) {
       html += `<img class="drink_img" src="${drink.img}" alt= cocktail-photo/>`;
     }
     html += `<h2>${drink.name}</h2>`;
+    if (drink.day === null) {
+      html += `<p>No modified</p>`;
+    } else {
+      html += `<h2>${drink.day}</h2>`;
+    }
+
     html += `</li>`;
   }
   list.innerHTML = html;
@@ -122,6 +148,7 @@ function dataFromApi() {
           id: coctel.idDrink,
           name: coctel.strDrink,
           img: coctel.strDrinkThumb,
+          day: coctel.dateModified,
         };
         return newCoctel;
       });
