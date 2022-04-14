@@ -5,12 +5,25 @@ const cocktailInput = document.querySelector('.js-cocktail-input');
 const list = document.querySelector('.js-result-list');
 const listFavs = document.querySelector('.js-favs-list');
 const resetBtn = document.querySelector('.js-reset-btn');
+
 let drinks = [];
 let favorites = [];
 
-// const btnsDelete = document.querySelectorAll('.js-delete-btn');
-// for (const btnDelete of btnsDelete)
-//   btnDelete.addEventListener('click', handleDeleteBtn);
+function handleDeleteBtns(event) {
+  const drinkIdClickled = event.currentTarget.id;
+  const foundFavoriteDrinkIndex = favorites.findIndex((fav) => {
+    return fav.id === drinkIdClickled;
+  });
+  favorites.splice(foundFavoriteDrinkIndex, 1);
+  renderFavsDrinks();
+}
+
+function listenDeleteBtns() {
+  const deleteBtns = document.querySelectorAll('.js-delete-btn');
+  for (const deleteBtn of deleteBtns) {
+    deleteBtn.addEventListener('click', handleDeleteBtns);
+  }
+}
 
 function resetFav() {
   localStorage.removeItem('favorites');
@@ -45,31 +58,33 @@ function renderFavsDrinks() {
   } else {
     for (const favorite of favorites) {
       html += `<li class="fav_item_list js_fav_item" id="${favorite.id}">`;
-      html += `<h2">${favorite.name}</h2> <button class="js-delete-btn" id=${favorite.id}>x</button>`;
+      html += `<h2">${favorite.name}</h2>`;
       if (favorite.img === null) {
         html += `<img class="drink_img" src="./assets/images/strawberry-cocktail-m.jpg" alt="cocktail-photo">`;
       } else {
         html += `<img class="drink_img" src="${favorite.img}" alt="cocktail-photo">`;
       }
+      html += `<button class="js-delete-btn" id=${favorite.id}>x</button>`;
       html += `</li>`;
     }
   }
   listFavs.innerHTML = html;
+  listenDeleteBtns();
 }
 
 function handleClickResults(event) {
   const drinkIdClickled = event.currentTarget.id;
-  const foundDrink = drinks.find((fav) => fav.id === drinkIdClickled);
-
+  const favDrink = drinks.find((fav) => {
+    return fav.id === drinkIdClickled;
+  });
   const foundFavoriteDrinkIndex = favorites.findIndex((fav) => {
     return fav.id === drinkIdClickled;
   });
   if (foundFavoriteDrinkIndex === -1) {
-    favorites.push(foundDrink);
+    favorites.push(favDrink);
   } else {
     favorites.splice(foundFavoriteDrinkIndex, 1);
   }
-  renderDrinkList(drinks);
   renderFavsDrinks();
   setFavoritestoLocalStorage();
 }
@@ -83,18 +98,8 @@ function listenerliResults() {
 
 function renderDrinkList(drinks) {
   let html = '';
-  let favStyle = '';
-
   for (const drink of drinks) {
-    const foundFavoriteDrinkIndex = favorites.findIndex((fav) => {
-      return fav.id === drink.id;
-    });
-    if (foundFavoriteDrinkIndex !== -1) {
-      favStyle = 'is_fav';
-    } else {
-      favStyle = '';
-    }
-    html += `<li class="result_item_list js-result ${favStyle}" id="${drink.id}">`;
+    html += `<li class="result_item_list js-result" id="${drink.id}">`;
 
     if (drink.img === null || drink.img === undefined) {
       html += `<img class="drink_img" src="./assets/images/strawberry-cocktail-m.jpg" alt="cocktail-photo"/>`;
