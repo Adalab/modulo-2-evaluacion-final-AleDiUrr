@@ -8,6 +8,22 @@ const resetBtn = document.querySelector('.js-reset-btn');
 let drinks = [];
 let favorites = [];
 
+function handleDeleteBtns(event) {
+  const drinkIdClickled = event.currentTarget.id;
+  const foundFavoriteDrinkIndex = favorites.findIndex((fav) => {
+    return fav.id === drinkIdClickled;
+  });
+  favorites.splice(foundFavoriteDrinkIndex, 1);
+  renderFavsDrinks();
+}
+
+function listenDeleteBtns() {
+  const deleteBtns = document.querySelectorAll('.js-delete-btn');
+  for (const deleteBtn of deleteBtns) {
+    deleteBtn.addEventListener('click', handleDeleteBtns);
+  }
+}
+
 function resetFav() {
   localStorage.removeItem('favorites');
   cocktailInput.value = '';
@@ -41,16 +57,18 @@ function renderFavsDrinks() {
   } else {
     for (const favorite of favorites) {
       html += `<li class="fav_item_list js_fav_item" id="${favorite.id}">`;
-      html += `<h2">${favorite.name}</h2> <button class="js-delete-btn" id=${favorite.id}>x</button>`;
+      html += `<h2">${favorite.name}</h2>`;
       if (favorite.img === null) {
         html += `<img class="drink_img" src="./assets/images/strawberry-cocktail-m.jpg" alt="cocktail-photo">`;
       } else {
         html += `<img class="drink_img" src="${favorite.img}" alt="cocktail-photo">`;
       }
+      html += `<button class="js-delete-btn" id=${favorite.id}>x</button>`;
       html += `</li>`;
     }
   }
   listFavs.innerHTML = html;
+  listenDeleteBtns();
 }
 
 function handleClickResults(event) {
