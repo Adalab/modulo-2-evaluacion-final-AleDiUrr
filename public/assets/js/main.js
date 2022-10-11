@@ -106,7 +106,7 @@ function renderDrinkList(drinks) {
     } else {
       html += `<img class="drink_img" src="${drink.img}" alt= cocktail-photo/>`;
     }
-    html += `<h2>${drink.name}</h2>`;
+    html += `<h2 class="result_list_name">${drink.name}</h2>`;
     html += `</li>`;
   }
   list.innerHTML = html;
