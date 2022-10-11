@@ -402,28 +402,33 @@ button {
     @media all and (min-width: 768px) {
       .main .favs {
         flex-direction: row; } }
-    .main .favs_title {
-      background-color: pink;
-      color: gray;
-      text-align: center;
-      padding: 10px;
-      width: 435px; }
   .main .favs_list {
     list-style-type: none;
     display: flex;
     flex-direction: row;
-    justify-content: center; }
-    .main .favs_list_item {
+    justify-content: center;
+    flex-wrap: wrap; }
+    .main .favs_list .favs_list_item {
       display: flex;
       flex-direction: column; }
-    .main .favs_list_name {
-      min-width: 15ch;
-      margin-left: 5px;
-      margin-right: 5px;
-      padding: 5px; }
+    .main .favs_list .favs_list_name {
+      font-size: 10px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      color: #5a5a5a;
+      flex-direction: column; }
     @media all and (min-width: 768px) {
       .main .favs_list {
-        flex-direction: row; } }
+        flex-direction: row;
+        padding-bottom: 50px; }
+        .main .favs_list .favs_list_name {
+          font-size: 10px;
+          height: 20px;
+          display: flex;
+          align-items: center;
+          color: #5a5a5a;
+          flex-direction: column; } }
   .main .results {
     border-radius: 5px;
     margin: 0 10px; }
@@ -442,11 +447,9 @@ button {
     margin: 0 10px; }
   .main .result_list_name {
     font-size: 10px;
-    height: 20px;
     display: flex;
     align-items: center;
     color: #5a5a5a;
-    flex-direction: column;
     flex-direction: column; }
   .main .drink_img {
     width: 100px;
@@ -458,5 +461,7 @@ button {
     color: black;
     display: flex;
     flex-direction: row; }
+  .main .fa-brands {
+    color: plum; }
 
 /*# sourceMappingURL=main.css.map */

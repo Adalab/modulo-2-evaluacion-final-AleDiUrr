@@ -64,7 +64,7 @@ function renderFavsDrinks() {
       } else {
         html += `<img class="drink_img" src="${favorite.img}" alt="cocktail-photo">`;
       }
-      html += `<button class="js-delete-btn" id=${favorite.id}>x</button>`;
+      html += `<i class="js-delete-btn fa-brands fa-gratipay" id="${favorite.id}"></i>`;
       html += `</li>`;
     }
   }

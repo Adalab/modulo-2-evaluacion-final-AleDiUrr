@@ -30,14 +30,6 @@
     @media all and (min-width: 768px) {
       flex-direction: row;
     }
-
-    &_title {
-      background-color: pink;
-      color: gray;
-      text-align: center;
-      padding: 10px;
-      width: 435px;
-    }
   }
 
   .favs_list {
@@ -45,21 +37,34 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
 
-    &_item {
+    .favs_list_item {
       display: flex;
       flex-direction: column;
     }
 
-    &_name {
-      min-width: 15ch;
-      margin-left: 5px;
-      margin-right: 5px;
-      padding: 5px;
+    .favs_list_name {
+      font-size: 10px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      color: #5a5a5a;
+      flex-direction: column;
     }
 
     @media all and (min-width: 768px) {
       flex-direction: row;
+      padding-bottom: 50px;
+
+      .favs_list_name {
+        font-size: 10px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        color: #5a5a5a;
+        flex-direction: column;
+      }
     }
   }
 
@@ -85,11 +90,9 @@
 
   .result_list_name {
     font-size: 10px;
-    height: 20px;
     display: flex;
     align-items: center;
     color: #5a5a5a;
-    flex-direction: column;
     flex-direction: column;
   }
 
@@ -105,5 +108,9 @@
     color: black;
     display: flex;
     flex-direction: row;
+  }
+
+  .fa-brands {
+    color: plum;
   }
 }
