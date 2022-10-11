@@ -64,10 +64,9 @@
   }
 
   .results {
-    width: calc(100vw - 275px);
+    width: calc(100vw - 400px);
     border-radius: 5px;
     margin: 0 10px;
-    background-color: #f1f1f1;
   }
 
   .results_list {
@@ -85,13 +84,6 @@
       width: 175px;
       margin: 10px;
     }
-  }
-
-  .results_title {
-    background-color: rgb(200, 214, 226);
-    color: white;
-    text-align: center;
-    padding: 10px;
   }
 
   .drink_img {
