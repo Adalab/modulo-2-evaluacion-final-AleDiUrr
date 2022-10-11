@@ -383,8 +383,7 @@ button {
     .main {
       grid-template-columns: 2fr 1fr;
       -moz-column-gap: 15px;
-      column-gap: 15px;
-      align-items: baseline; } }
+      column-gap: 15px; } }
   .main .section_list {
     display: flex;
     flex-direction: column;
@@ -402,7 +401,7 @@ button {
     align-items: center; }
     @media all and (min-width: 768px) {
       .main .favs {
-        justify-content: space-between; } }
+        flex-direction: row; } }
     .main .favs_title {
       background-color: pink;
       color: gray;
@@ -424,7 +423,7 @@ button {
       padding: 5px; }
     @media all and (min-width: 768px) {
       .main .favs_list {
-        flex-direction: column; } }
+        flex-direction: row; } }
   .main .results {
     border-radius: 5px;
     margin: 0 10px; }

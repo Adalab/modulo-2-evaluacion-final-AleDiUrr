@@ -6,7 +6,6 @@
   @media all and (min-width: 768px) {
     grid-template-columns: 2fr 1fr;
     column-gap: 15px;
-    align-items: baseline;
   }
   .section_list {
     display: flex;
@@ -29,7 +28,7 @@
     align-items: center;
 
     @media all and (min-width: 768px) {
-      justify-content: space-between;
+      flex-direction: row;
     }
 
     &_title {
@@ -60,7 +59,7 @@
     }
 
     @media all and (min-width: 768px) {
-      flex-direction: column;
+      flex-direction: row;
     }
   }
 
