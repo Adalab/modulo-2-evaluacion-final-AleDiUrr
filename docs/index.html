@@ -19,31 +19,37 @@
     <title>Your favorite cocktail-</title>
   </head>
   <body>
-    <h1>World cocktails and drinks</h1>
+    <header class="header">
+      <section class="search">
+        <h1>World cocktails and drinks</h1>
+        <form class="form_section">
+          <input
+            class="input js-cocktail-input"
+            type="text"
+            name="find"
+            placeholder="Mojito..."
+          />
+          <input class="search_button js-search-btn" type="button" value="Search" />
+
+          <input
+            class="search_button reset_button js-reset-btn"
+            type="reset"
+            value="Reset"
+          />
+        </form>
+      </section>
+    </header>
 
     <main class="main">
-      <section class="left_section">
-        <form class="form_section">
-          <input class="input js-cocktail-input" type="text" name="find" />
-          <input class="search_button js-search-btn" type="button" value="Search" />
-        </form>
-        <button class="reset_button js-reset-btn">Reset</button>
-        <h2 class="favs_title js-favs-title">Your favs</h2>
-        <ul class="favs_list js-favs-list">
-          <!-- <li class= "fav_item_list js-fav-item">
-            <img
-              class="fav_img"
-              src="./assets/images/strawberry-cocktail-m.jpg"
-              alt=""
-              width="100px"
-            />
-            <h2>Margarita</h2>
-          </li> -->
-        </ul>
-      </section>
-      <section class="right_section">
-        <ul class="result_list js-result-list">
-          <!-- <li class="result_item_list js-result-list">
+      <section class="section_list">
+        <article class="favs">
+          <h2 class="favs_title js-favs-title">Your favs</h2>
+          <ul class="favs_list js-favs-list"></ul>
+        </article>
+        <article class="results">
+          <h2 class="results_title">cocktails</h2>
+          <ul class="results_list js-result-list">
+            <!-- <li class="result_item_list js-result-list">
           <img
             class="result_img"
             src="./assets/images/strawberry-cocktail-m.jpg"
@@ -52,7 +58,8 @@
           /> 
           <h2>Caipiriña</h2>
           </li> -->
-        </ul>
+          </ul>
+        </article>
       </section>
     </main>
 
