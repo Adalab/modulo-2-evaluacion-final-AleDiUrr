@@ -1,46 +1,109 @@
 .main {
-  display: flex;
-}
+  min-height: calc(100vh - 300px);
+  gap: 25px;
 
-.result_list {
-  display: flex;
-  flex-direction: row;
-}
+  .section_list {
+    display: flex;
+    flex-direction: row;
+  }
 
-.favs_list {
-  display: flex;
-  flex-direction: column;
-}
+  .result_list {
+    display: flex;
+    flex-direction: row;
+  }
 
-.result_item_list {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  background-color: black;
-  margin-top: 40px;
-  border-style: double;
-}
+  .favs {
+    background-color: #f7f7f9;
+    width: min-content;
+    border-radius: 5px;
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 
-.fav_item_list {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  color: black;
-  background-color: white;
-  border-style: double;
-}
+    @media all and (min-width: 768px) {
+      justify-content: space-between;
+    }
 
-.drink_img {
-  width: 100px;
-  height: 100px;
-}
+    &_title {
+      background-color: pink;
+      color: gray;
+      text-align: center;
+      padding: 10px;
+      width: 435px;
+    }
+  }
 
-.is_fav {
-  border-style: double;
-  background-color: plum;
-  color: black;
-  display: flex;
-  flex-direction: row;
+  .favs_list {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &_item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      width: 415px;
+      margin: 10px;
+      color: black;
+    }
+
+    &_name {
+      min-width: 15ch;
+      margin-left: 5px;
+      margin-right: 5px;
+      padding: 5px;
+    }
+
+    &_icon {
+      font-size: xx-large;
+    }
+  }
+
+  .results {
+    width: calc(100vw - 275px);
+    border-radius: 5px;
+    margin: 0 10px;
+    background-color: #f1f1f1;
+  }
+
+  .results_list {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &_item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      width: 175px;
+      margin: 10px;
+    }
+  }
+
+  .results_title {
+    background-color: rgb(200, 214, 226);
+    color: white;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .drink_img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .is_fav {
+    border-style: double;
+    background-color: plum;
+    color: black;
+    display: flex;
+    flex-direction: row;
+  }
 }

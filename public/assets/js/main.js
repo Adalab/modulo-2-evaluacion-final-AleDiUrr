@@ -57,8 +57,8 @@ function renderFavsDrinks() {
     html += `Any fav?'`;
   } else {
     for (const favorite of favorites) {
-      html += `<li class="fav_item_list js_fav_item" id="${favorite.id}">`;
-      html += `<h2">${favorite.name}</h2>`;
+      html += `<li class="favs_list_item js_fav_item" id="${favorite.id}">`;
+      html += `<h2 class="favs_list_name">${favorite.name}</h2>`;
       if (favorite.img === null) {
         html += `<img class="drink_img" src="./assets/images/strawberry-cocktail-m.jpg" alt="cocktail-photo">`;
       } else {

@@ -336,44 +336,119 @@ button {
   outline: none;
   box-shadow: none; }
 
-.main {
-  display: flex; }
-
-.result_list {
+.search {
+  background-color: white;
+  padding: 0 16px;
   display: flex;
-  flex-direction: row; }
-
-.favs_list {
-  display: flex;
-  flex-direction: column; }
-
-.result_item_list {
-  display: flex;
+  gap: 12px;
+  height: 86px;
+  font-size: 12px;
+  padding-top: 16px;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  color: white;
-  background-color: black;
-  margin-top: 40px;
-  border-style: double; }
+  align-items: center; }
+  .search .input,
+  .search .search_button {
+    box-sizing: border-box;
+    height: 30px;
+    border-radius: 4px;
+    border: 0; }
+    .search .input:hover,
+    .search .search_button:hover {
+      background-color: #f5f2f8; }
+  .search .search_button,
+  .search .reset_button {
+    background-color: #c9c9c9;
+    color: black; }
+  .search .input {
+    padding: 0 10px;
+    border: 0.5px solid rgba(0, 0, 0, 0.3);
+    background-color: white;
+    width: 200px; }
+  @media all and (min-width: 680px) {
+    .search {
+      height: 100px; } }
 
-.fav_item_list {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  color: black;
-  background-color: white;
-  border-style: double; }
-
-.drink_img {
-  width: 100px;
-  height: 100px; }
-
-.is_fav {
-  border-style: double;
-  background-color: plum;
-  color: black;
-  display: flex;
-  flex-direction: row; }
+.main {
+  min-height: calc(100vh - 300px);
+  gap: 25px; }
+  .main .section_list {
+    display: flex;
+    flex-direction: row; }
+  .main .result_list {
+    display: flex;
+    flex-direction: row; }
+  .main .favs {
+    background-color: #f7f7f9;
+    width: -webkit-min-content;
+    width: -moz-min-content;
+    width: min-content;
+    border-radius: 5px;
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center; }
+    @media all and (min-width: 768px) {
+      .main .favs {
+        justify-content: space-between; } }
+    .main .favs_title {
+      background-color: pink;
+      color: gray;
+      text-align: center;
+      padding: 10px;
+      width: 435px; }
+  .main .favs_list {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; }
+    .main .favs_list_item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      width: 415px;
+      margin: 10px;
+      color: black; }
+    .main .favs_list_name {
+      min-width: 15ch;
+      margin-left: 5px;
+      margin-right: 5px;
+      padding: 5px; }
+    .main .favs_list_icon {
+      font-size: xx-large; }
+  .main .results {
+    width: calc(100vw - 275px);
+    border-radius: 5px;
+    margin: 0 10px;
+    background-color: #f1f1f1; }
+  .main .results_list {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; }
+    .main .results_list_item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      width: 175px;
+      margin: 10px; }
+  .main .results_title {
+    background-color: #c8d6e2;
+    color: white;
+    text-align: center;
+    padding: 10px; }
+  .main .drink_img {
+    width: 150px;
+    height: 150px; }
+  .main .is_fav {
+    border-style: double;
+    background-color: plum;
+    color: black;
+    display: flex;
+    flex-direction: row; }
 
 /*# sourceMappingURL=main.css.map */
